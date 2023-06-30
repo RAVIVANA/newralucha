@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Money Deposit</title>
+<link rel="stylesheet" type="text/css" href="./css/money-deposit.css">
+<script type="text/javascript" src="./js/money-deposit.js"></script>
+</head>
+<body>
+	<h3>Money Deposit</h3>
+	<div class="form-container">
+
+		<div>
+			<form>
+				<div class="form-group">
+					<label for="accountNumber">Account Number:</label>
+<input type="text" class="form-control" id="accountNumber" placeholder="Enter account number" name="accountNumber" oninput="validateAndProcessAccountNumber()" required>
+
+				</div>
+			</form>
+		</div>
+
+	</div>
+
+	<div id="resulttable"></div>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+</body>
+</html>

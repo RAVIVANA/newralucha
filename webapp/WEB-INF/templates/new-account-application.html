@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>View Account Applications</title>
+<link rel="stylesheet" type="text/css"
+	href="./css/new-account-application.css">
+<script type="text/javascript" src="./js/new-account-application.js"></script>
+</head>
+<body>
+	<div class="table-container">
+		<table>
+			<thead>
+				<tr>
+					<th>Application ID</th>
+					<th>Customer ID</th>
+					<th>Nominee First Name</th>
+					<th>Nominee Last Name</th>
+					<th>Account Type ID</th>
+					<th>Created By</th>
+					<th>Application Date</th>
+					<th>Created Date</th>
+					<th>Processed By</th>
+					<th>Aadhar Card</th>
+					<th>PAN Card</th>
+					<th>Passport</th>
+					<th>Driving License</th>
+					<th>Job Card</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="accountApplication : ${listOfAccountApplications}">
+					<td th:text="${accountApplication.getAcapId()}"></td>
+					<td th:text="${accountApplication.getCustomerId()}"></td>
+					<td th:text="${accountApplication.getAcapNomineeFirstName()}"></td>
+					<td th:text="${accountApplication.getAcapNomineeLastName()}"></td>
+					<td th:text="${accountApplication.getAcap_acty_id()}"></td>
+					<td th:text="${accountApplication.getCreatedBy()}"></td>
+					<td th:text="${accountApplication.getApplicationDate() }"></td>
+					<td th:text="${accountApplication.getCreatedDate()}"></td>
+					<td th:text="${accountApplication.getProcessedBy()}"></td>
+					<td><a href="#" th:text="${accountApplication.getAadhar()}">View</a></td>
+					<td><a href="#" th:text="${accountApplication.getPan()}">View</a></td>
+					<td><a href="#" th:text="${accountApplication.getPassport()}">View</a></td>
+					<td><a href="#" th:text="${accountApplication.getDriving()}">View</a></td>
+					<td><a href="#" th:text="${accountApplication.getJobcard()}">View</a></td>
+					<td>
+						<button type="button" class="in" id="approveButton"	
+							onclick="approveAccountApplication('${accountApplication.id}', this)">Approve</button>
+							
+
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</body>
+</html>

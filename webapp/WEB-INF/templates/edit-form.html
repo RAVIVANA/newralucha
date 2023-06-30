@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Applications</title>
+    <style>
+        /* CSS styles for table and buttons */
+        /* ... */
+
+        /* CSS styles for form */
+        .edit-form {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .edit-form input {
+            margin-bottom: 5px;
+        }
+
+        .edit-form button {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Loan Applications</h2>
+    <div class="table-container">
+
+        <form id="editForm" class="edit-form">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" readonly><br>
+            <label for="customerId">Customer ID:</label>
+            <input type="text" id="customerId" name="customerId"><br>
+            <label for="applicationDate">Application Date:</label>
+            <input type="text" id="applicationDate" name="applicationDate"><br>
+            <label for="loanTypeId">Loan Type ID:</label>
+            <input type="text" id="loanTypeId" name="loanTypeId"><br>
+            <label for="amount">Amount:</label>
+            <input type="text" id="amount" name="amount"><br>
+            <label for="emiLimitFrom">EMI Limit From:</label>
+            <input type="text" id="emiLimitFrom" name="emiLimitFrom"><br>
+            <label for="emiLimitTo">EMI Limit To:</label>
+            <input type="text" id="emiLimitTo" name="emiLimitTo"><br>
+            <label for="tenureRequested">Tenure Requested:</label>
+            <input type="text" id="tenureRequested" name="tenureRequested"><br>
+            <label for="nominee">Nominee:</label>
+            <input type="text" id="nominee" name="nominee"><br>
+            <label for="createdBy">Created By:</label>
+            <input type="text" id="createdBy" name="createdBy"><br>
+            <label for="createdDate">Created Date:</label>
+            <input type="text" id="createdDate" name="createdDate"><br>
+            <label for="processedBy">Processed By:</label>
+            <input type="text" id="processedBy" name="processedBy"><br>
+            <label for="processDate">Process Date:</label>
+            <input type="text" id="processDate" name="processDate"><br>
+            <label for="processedStatus">Processed Status:</label>
+            <input type="text" id="processedStatus" name="processedStatus"><br>
+            <label for="lastUpdatedDate">Last Updated Date:</label>
+            <input type="text" id="lastUpdatedDate" name="lastUpdatedDate"><br>
+            <label for="lastUpdatedUser">Last Updated User:</label>
+            <input type="text" id="lastUpdatedUser" name="lastUpdatedUser"><br>
+            <label for="status">Status:</label>
+            <input type="text" id="status" name="status"><br>
+            <label for="remarks">Remarks:</label>
+            <input type="text" id="remarks" name="remarks"><br>
+            <label for="attachment">Document:</label>
+            <input type="text" id="attachment" name="attachment"><br>
+
+            <button type="button" onclick="saveEditedData()">Save</button>
+            <button type="button" onclick="cancelEdit()">Cancel</button>
+        </form>
+        </div>
+<script>
+       
+window.onload = function() {
+    // Code to execute when the window has finished loading
+    var editButton = document.getElementById('editButton');
+    editLoanApplication();
+};
+
+     function editLoanApplication() {
+
+            var rowData = sessionStorage.getItem('editedData');
+
+            // Fill the form fields with the row data
+            document.getElementById('id').value = rowData[0];
+            document.getElementById('customerId').value = rowData[1];
+            document.getElementById('applicationDate').value = rowData[2];
+            document.getElementById('loanTypeId').value = rowData[3];
+            document.getElementById('amount').value = rowData[4];
+            document.getElementById('emiLimitFrom').value = rowData[5];
+            document.getElementById('emiLimitTo').value = rowData[6];
+            document.getElementById('tenureRequested').value = rowData[7];
+            document.getElementById('nominee').value = rowData[8];
+            document.getElementById('createdBy').value = rowData[9];
+            document.getElementById('createdDate').value = rowData[10];
+            document.getElementById('processedBy').value = rowData[11];
+            document.getElementById('processDate').value = rowData[12];
+            document.getElementById('processedStatus').value = rowData[13];
+            document.getElementById('lastUpdatedDate').value = rowData[14];
+            document.getElementById('lastUpdatedUser').value = rowData[15];
+            document.getElementById('status').value = rowData[16];
+            document.getElementById('remarks').value = rowData[17];
+            document.getElementById('attachment').value = rowData[18];
+
+            // Show the edit form
+            document.getElementById('editForm').style.display = 'block';
+        }
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Account Types</title>
+</head>
+<body>
+	<h1>Account Types</h1>
+	<option th:each="accountTypes : ${accountTypes}"
+		th:value="${accountTypes.getAccountId()}"
+		th:text="${accountTypes.getAccountType()}"></option>
+
+</body>
+</html>
+

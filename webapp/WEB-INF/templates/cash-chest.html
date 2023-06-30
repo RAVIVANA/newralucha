@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Cash Chest Summary</title>
+<link rel="stylesheet" type="text/css" href="./css/cash-chest.css">
+<script type="text/javascript" src="./js/cash-chest.js"></script>
+</head>
+<body>
+	<!-- <h1>Cash Chest Summary</h1> -->
+
+	<div class="form-container">
+		<form>
+			<div class="form-group">
+				<label for="cashChestId">Cash Chest ID</label> <input type="text"
+					id="cashChestId" name="cashChestId" value="CC123456789" readonly>
+			</div>
+			<div class="form-group">
+				<label for="dateTime">Date/Time</label> <input type="text"
+					id="dateTime" name="dateTime"
+					th:value="${cashChest.getTimestamp()}" readonly>
+			</div>
+			<div class="form-group">
+				<label for="CashAmount">today's started Amount</label> <input
+					type="text" id="CashAmount" name="CashAmount"
+					th:value="${cashChest.getstartedamount()}" readonly>
+			</div>
+			<div class="form-group">
+				<label for="totalCashAmount">Total Cash Amount</label> <input
+					type="text" id="totalCashAmount" name="totalCashAmount"
+					th:value="${cashChest.gettotalamount()}" readonly>
+			</div>
+			<div class="form-group">
+				<label for="pmli">present month Loans interests</label> <input
+					type="text" id="pmli" name="pmli"
+					th:value="${cashChest.getloaninterest()}" readonly>
+			</div>
+			<div class="form-group">
+				<label for="pmai">present month Accounts interests deducted</label>
+				<input type="text" id="pmai" name="pmai"
+					th:value="${cashChest.getaccountinterest()}" readonly>
+			</div>
+
+			<div class="form-group">
+				<label for="miscellaneousItems">Miscellaneous Items</label> <input
+					type="text" id="miscellaneousItems" name="miscellaneousItems"
+					value="Credit card slips, Money orders" readonly>
+			</div>
+
+		</form>
+	</div>
+</body>
+</html>

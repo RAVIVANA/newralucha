@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Loan Master Entry</title>
+</head>
+<body>
+
+
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Loan Type</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- Iterate over the loanList and populate the table rows -->
+			<tr th:each="loan : ${loans}">
+				<td th:text="${loan.getLoanId()}"></td>
+				<td th:text="${loan.getLoanType()}"></td>
+				<td th:text="${loan.getDescriptionForm()}"></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<!-- Other HTML content -->
+
+</body>
+</html>

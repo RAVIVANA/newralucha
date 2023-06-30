@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Accounts Table</title>
+<link rel="stylesheet" type="text/css" href="./css/account-interest.css">
+<script type="text/javascript" src="./js/account-interest.js"></script>
+</head>
+<body>
+	<h2>Accounts Table</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>Account ID</th>
+				<th>Account Type ID</th>
+				<th>Nominee First Name</th>
+				<th>Nominee Last Name</th>
+				<th>Created Date</th>
+				<th>Balance</th>
+				<th>Count</th>
+				<th>Last Update</th>
+				<th>interest</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="account : ${accounts}">
+				<td th:text="${account.getApplicationId()}"></td>
+				<td th:text="${account.getAccountTypeId()}"></td>
+				<td th:text="${account.getApplicationNomineeFirstName()}"></td>
+				<td th:text="${account.getApplicationNomineeLastName()}"></td>
+				<td th:text="${account.getCreated_date()}"></td>
+				<td th:text="${account.getBalance()}"></td>
+				<td th:text="${account.getCount()}"></td>
+				<td th:text="${account.getLastUpdate()}"></td>
+				<td th:text="${account.getIntrest()}"></td>
+
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Transactions</title>
+<link rel="stylesheet" type="text/css"
+	href="./css/loan-transactions-list.css">
+<script type="text/javascript" src="./js/loan-transactions-list.js"></script>
+</head>
+<body>
+    <h1>Loan Transactions</h1>
+    <table>
+        <tr>
+            <th>Transaction ID</th>
+            <th>Processed By</th>
+            <th>Loan ID</th>
+            <th>EMI</th>
+            <th>Interest</th>
+            <th>Type</th>
+            <th>Total</th>
+            <th>Amount</th>
+            <th>Complete</th>
+            <th>Date</th>
+            <th>Installment No</th>
+        </tr>
+        <tr th:each="transaction : ${loanTransactions}">
+            <td th:text="${transaction.getTran_id()}"></td>
+            <td th:text="${transaction.getProcessedBy()}"></td>
+            <td th:text="${transaction.getLoanId()}"></td>
+            <td th:text="${transaction.getEmi()}"></td>
+            <td th:text="${transaction.getInterest()}"></td>
+            <td th:text="${transaction.getType()}"></td>
+            <td th:text="${transaction.getTotal()}"></td>
+            <td th:text="${transaction.getAmount()}"></td>
+            <td th:text="${transaction.getComplete()}"></td>
+            <td th:text="${transaction.getDate()}"></td>
+            <td th:text="${transaction.getInstallmentNo()}"></td>
+        </tr>
+    </table>
+</body>
+</html>

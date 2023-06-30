@@ -1,0 +1,27 @@
+@charset "ISO-8859-1";
+
+.checkbox-group {
+	border: 1px solid #ccc;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.form-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.form-container select, .form-container input[type="submit"],
+	.form-container button {
+	margin-right: 10px;
+}
+
+.checkbox-group {
+	margin-top: 10px;
+	display: none; /* Hide the checkbox group by default */
+}
+
+.checkbox-group label {
+	display: block;
+}

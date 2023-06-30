@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dynamic Table</title>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<link rel="stylesheet" type="text/css"
+	href="./css/account-master-entry.css">
+<script type="text/javascript" src="./js/account-master-entry.js"></script>
+
+<style>
+</style>
+</head>
+<div class="body">
+	<h1>Accounts</h1>
+
+	<table>
+		<tr>
+			<td><button onclick="showAccountTypeForm()">Add new
+					Account Type</button></td>
+		</tr>
+		<tr>
+			<td>Select a Account Type: <select id="account-type"
+				onclick="showRow()" value="selectaccount">
+
+					<!-- Replace with Thymeleaf loop -->
+					<option>select</option>
+					<option th:each="account : ${accountTypes}"
+						th:value="${account.getAccountId()}"
+						th:text="${account.getAccountType()}"></option>
+			</select>
+				<div id="information"></div>
+			</td>
+		</tr>
+	</table>
+
+	<br>
+	<br> <br>
+	<br>
+
+	<table id="resultTable">
+		<thead>
+
+			<tr>
+				<th>ID</th>
+				<th>Loan Type</th>
+				<th>Description</th>
+			</tr>
+
+		</thead>
+		<tbody>
+			<!-- Iterate over the loanList and populate the table rows -->
+			<tr th:each="account : ${accounts}">
+				<td th:text="${account.getAccountId()}"></td>
+				<td th:text="${account.getAccountType()}"></td>
+				<td th:text="${account.getDescriptionForm()}"></td>
+			</tr>
+		</tbody>
+
+	</table>
+
+	<!-- Loan Type Modal -->
+	<div id="accountTypeModal" style="display: none;">
+		<div>
+			<h2>New Account Type</h2>
+			<form>
+				<table>
+					<tr>
+						<td>Account Type ID:</td>
+						<td><input type="number" id="account_id" name="account_id"
+							required></td>
+					</tr>
+
+					<tr>
+						<td>Account Type Title:</td>
+						<td><input type="text" id="account_title"
+							name="account_title" required></td>
+					</tr>
+				</table>
+
+				<button type="button" onclick="adddescription()">Add
+					Description</button>
+				<button type="button" onclick="closeModal()">Cancel</button>
+			</form>
+		</div>
+	</div>
+
+	<div id="descriptionForm" style="display: none;">
+		<div>
+			<h2>Description</h2>
+			<form>
+				<table>
+					<tr>
+						<td>Account Type Description:</td>
+						<td><textarea id="account_desc" name="account_desc" rows="4"
+								cols="40"></textarea></td>
+					</tr>
+				</table>
+
+				<button type="button" onclick="saveAccountType()">Save</button>
+				<button type="button" onclick="closeModal()">Cancel</button>
+			</form>
+		</div>
+	</div>
+
+</div>
+</html>

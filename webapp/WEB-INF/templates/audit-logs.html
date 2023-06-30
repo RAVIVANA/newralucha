@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Audit Logs</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/audit-logs.css">
+</head>
+<body>
+    <div class="body">
+        <div class="container">
+            <h1>Audit Logs</h1>
+            <div class="download-btn">
+                <a href="#" class="btn btn-primary" onclick="downloadPDF()">Download PDF</a>
+            </div>
+
+            <table id="audit-table" class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Event</th>
+                        <th>Timestamp</th>
+                        <th>Username</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Loop through the list of audit logs and populate the table rows -->
+                    <tr th:each="auditLog : ${auditLogs}">
+                        <td th:text="${auditLog.id}"></td>
+                        <td th:text="${auditLog.event}"></td>
+                        <td th:text="${auditLog.timestamp}"></td>
+                        <td th:text="${auditLog.username}"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Pagination -->
+            <ul class="pagination">
+                <li class="page-item" th:classappend="${currentPage == 0} ? 'disabled'">
+                    <a class="page-link" th:if="${currentPage > 0}" th:href="@{|/auditLogs?page=${currentPage-1}|}">&laquo; Previous</a>
+                </li>
+                <li class="page-item" th:each="pageNumber : ${pageNumbers}" th:classappend="${pageNumber == currentPage} ? 'active'">
+                    <a class="page-link" th:href="@{|/auditLogs?page=${pageNumber}|}" th:text="${pageNumber + 1}"></a>
+                </li>
+                <li class="page-item" th:classappend="${currentPage == totalPages - 1} ? 'disabled'">
+                    <a class="page-link" th:if="${currentPage < totalPages - 1}" th:href="@{|/auditLogs?page=${currentPage+1}|}">Next &raquo;</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script>
+        function downloadPDF() {
+            const table = document.getElementById('audit-table');
+            const opt = {
+                margin: [0, 0, 0, 0],
+                filename: 'audit_logs.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().set(opt).from(table).save();
+        }
+    </script>
+</body>
+</html>

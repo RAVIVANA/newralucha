@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bank Account Selection</title>
+<!-- Include Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="./css/account-types.css">
+<script type="text/javascript" src="./js/account-types.js"></script>
+</head>
+
+
+<div class="container" id=" co">
+	<h1>Select Account Type</h1>
+	<div class="form-group">
+		<label for="accountType">Account Type:</label> <select
+			class="form-control" id="accountType" onchange="submitAccountType()">
+			<option value="savings">Savings Account</option>
+			<option value="fixed">Fixed Deposit</option>
+			<option value="recurrent">Recurring Deposit</option>
+		</select>
+	</div>
+</div>
+<div class="row" id="row"></div>
+<div class="center">
+	<button class="hide" id="id" onclick="submit()">Calculate
+		Interest</button>
+</div>
+<!-- Include Bootstrap JS -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+
+</html>

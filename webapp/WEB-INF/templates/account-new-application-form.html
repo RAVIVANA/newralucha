@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<title>Account Application Form</title>
+
+<link rel="stylesheet" type="text/css"
+	href="./css/account-new-application-form.css">
+<script type="text/javascript" src="./js/account-new-application-form.js"></script>
+
+</head>
+<body>
+	<div class="form-container">
+
+		<form id="first-form" class="hidden">
+			<table>
+				<h1>Account Application Form</h1>
+				<br>
+				<!-- <tr>
+					<td><label for="acap_id">Application ID:</label></td>
+					<td><input type="number" id="acap_id" name="acap_id">
+					</td> -->
+					<td><label for="acap_cust_id">Customer ID:</label></td>
+					<td><input type="number" id="acap_cust_id" name="acap_cust_id">
+					</td>
+				</tr>
+				<tr>
+					<td><label for="acap_nominee_fn">Nominee First Name:</label></td>
+					<td><input type="text" id="acap_nominee_fn"
+						name="acap_nominee_fn"></td>
+					<td><label for="acap_nominee_ln">Nominee Last Name:</label></td>
+					<td><input type="text" id="acap_nominee_ln"
+						name="acap_nominee_ln"></td>
+				</tr>
+				<tr>
+					
+			  <td>
+				  <label for="acap_acty_id">Select an Account Type:</label>
+				</td>
+				<td>
+				  <select id="acap_acty_id" name="acap_acty_id"  value="selectaccount">
+				    <option value="">Select an option</option>
+				    <option th:each="account : ${accountTyped}"
+				            th:value="${account.getAccountType()}"
+				            th:text="${account.getAccountType()}"></option>
+				  </select>
+				</td>
+
+
+					
+					<td><label for="acap_createdby">Created By:</label></td>
+					<td><input type="text" id="acap_createdby"
+						name="acap_createdby"></td>
+				</tr>
+				<tr>
+					<td><label for="acap_apdate">Application Date:</label></td>
+					<td><input type="date" id="acap_apdate" name="acap_apdate">
+					</td>
+					<td><label for="acap_createddate">Created Date:</label></td>
+					<td><input type="date" id="acap_createddate"
+						name="acap_createddate"></td>
+				</tr>
+				<tr>
+					<td><label for="acap_processBy">Process by:</label></td>
+					<td><input type="text" id="acap_processBy"
+						name="acap_processBy"></td>
+					<td><label for="aadhar">Aadhar card:</label></td>
+					<td><input type="file" id="aadhar" name="aadhar"></td>
+				</tr>
+				<tr>
+					<td><label for="pan">PAN card:</label></td>
+					<td><input type="file" id="pan" name="pan"></td>
+					<td><label for="passport">Passport:</label></td>
+					<td><input type="file" id="passport" name="passport">
+					</td>
+				</tr>
+				<tr>
+					<td><label for="driving">Driving license:</label></td>
+					<td><input type="file" id="driving" name="driving"></td>
+					<td><label for="jobcard">Job card:</label></td>
+					<td><input type="file" id="jobcard" name="jobcard"></td>
+				</tr>
+			</table>
+			<button type="button" onclick="submit_application_data()">Submit</button>
+			<div id="successMessage"></div>
+
+		</form>
+
+
+		<form id="second-form" action="customer_data_trail_save" method="post">
+			<table>
+				<h2>Customer Details Form</h2>
+				<br>
+				<tr>
+					<td><label for="cust_id">Customer ID:</label></td>
+					<td><input type="number" id="cust_id" name="cust_id">
+					</td>
+					<td><label for="cust_title">Customer Title:</label></td>
+					<td><input type="text" id="cust_title" name="cust_title">
+					</td>
+				</tr>
+				<tr>
+					<td><label for="cust_type">Customer Type:</label></td>
+					<td><input type="text" id="cust_type" name="cust_type">
+					</td>
+					<td><label for="cust_caddress">Customer Current
+							Address:</label></td>
+					<td><input type="text" id="cust_caddress" name="cust_caddress">
+					</td>
+				</tr>
+				<tr>
+					<td><label for="cust_capincode">Customer Current PIN
+							Code:</label></td>
+					<td><input type="text" id="cust_capincode"
+						name="cust_capincode"></td>
+					<td><label for="cust_dob">Customer Date of Birth:</label></td>
+					<td><input type="date" id="cust_dob" name="cust_dob">
+					</td>
+				</tr>
+				<tr>
+					<td><label for="cust_mobile1">Customer Mobile 1:</label></td>
+					<td><input type="text" id="cust_mobile1" name="cust_mobile1">
+					</td>
+					<td><label for="cust_mobile2">Customer Mobile 2:</label></td>
+					<td><input type="text" id="cust_mobile2" name="cust_mobile2">
+					</td>
+				</tr>
+				<tr>
+					<td><label for="cust_rphone">Customer Residence Phone:</label>
+					</td>
+					<td><input type="text" id="cust_rphone" name="cust_rphone">
+					</td>
+					<td><label for="cust_raddress">Customer Residence
+							Address:</label></td>
+					<td><input type="text" id="cust_raddress" name="cust_raddress">
+					</td>
+				</tr>
+			</table>
+			<button type="button" onclick="submit_cutomer_data()">Submit</button>
+			<button type="button" onclick="toggleForms()">Next</button>
+		</form>
+
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

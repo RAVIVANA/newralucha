@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Money Deposit</title>
+<link rel="stylesheet" type="text/css"
+	href="./css/sub-money-deposit.css">
+<script type="text/javascript" src="./js/sub-money-deposit.js"></script>
+
+</head>
+<body>
+
+
+	<div id="money-deposit" class="form-container1">
+
+		<div>
+			<form method="post">
+
+				<div class="form-group">
+					<label for="accountNumber">Account Number:</label> <input
+						type="number" class="form-control" id="accountNumber"
+						name="accountNumber" th:value="${account.getApplicationId()}"
+						readonly>
+				</div>
+				<div class="form-group">
+					<label for="accountHolder">Account Holder:</label> <input
+						type="text" class="form-control" id="accountHolder"
+						name="accountHolder"
+						th:value="${account.getApplicationNomineeFirstName()}" readonly>
+				</div>
+				<div class="form-group">
+					<label for="branch">Branch Name:</label> <input type="text"
+						class="form-control" id="branch" name="branch" value="VSKP"
+						readonly>
+				</div>
+				<div class="form-group">
+					<label for="accountType">Account Type:</label> <input type="text"
+						class="form-control" id="accountType" name="accountType"
+						th:value="${account.getAccountTypeId()}" readonly>
+				</div>
+				<div class="form-group">
+                        <label for="date">Date:</label>
+                        <input type="date" onclick="getDate()" class="form-control" id="date" name="date" >
+                </div>
+				<div class="form-group">
+					<label for="amount">Amount:</label> <input type="number"
+						class="form-control" id="amount" placeholder="Enter amount"
+						name="amount" required>
+				</div>
+				<button type="button" class="tat" onclick="validateDepositeForm()">Deposit</button>
+				<div id="successMessage"></div>
+
+			</form>
+		</div>
+
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+</body>
+</html>

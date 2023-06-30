@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<div class="hml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+<title>Hamara Bank Website</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/bank-home-page.css">
+<script type="text/javascript" src="./js/bank-home-page.js"></script>
+	</head>
+	<div class="hb">
+		<!-- Thymeleaf version -->
+		<div th:fragment="penBankTemplate">
+			<header
+				style="display: flex; justify-content: space-between; align-items: center;">
+				<div style="display: flex; align-items: center;">
+					<h1>Hamara Bank</h1>
+					<p>&nbsp India's Largest Banking Platform</p>
+				</div>
+				<div id="user-info">
+					<span th:text="'Hey ' + ${username}+', '"></span> <a href="logout"
+						id="logout-link">&nbsp Logout</a>
+				</div>
+			</header>
+			<div class="navbar">
+				<nav>
+					<!-- Main List -->
+					<ul>
+						<!-- DashBoard List -->
+						<li>
+							<button class="btn">DashBoard</button>
+							<ul>
+								<li id="accounts"><button class="btn">Accounts</button></li>
+								<li id="loans"><button class="btn">Loans</button></li>
+								<li id="cashchest"><button class="btn">Cash Chest</button></li>
+
+							</ul>
+						</li>
+						<!-- DashBoard List Ending-->
+
+						<!-- Accounts List -->
+						<li>
+							<button class="btn">Accounts</button>
+							<ul>
+								<!-- Savings -->
+								<li>
+									<button class="btn">Savings</button>
+									<ul>
+										<li id="savingsacc" data-value="savings"><button
+												value="Savings" class="btn">View Accounts</button></li>
+										<li id="savingsapp" data-value="savings"><button
+												value="Savings" class="btn">View Applications</button></li>
+									</ul>
+								</li>
+
+								<!-- Current -->
+								<li>
+									<button class="btn">Current</button>
+									<ul>
+										<li id="currentacc" data-value="current"><button
+												class="btn">View Accounts</button></li>
+										<li id="currentapp" data-value="current"><button
+												class="btn">View Applications</button></li>
+									</ul>
+								</li>
+
+								<!-- Recurrent -->
+								<li>
+									<button class="btn">Recurrent</button>
+									<ul>
+										<li id="recurrentacc" data-value="recurrent"><button
+												class="btn">View Accounts</button></li>
+										<li id="recurrentapp" data-value="recurrent"><button
+												class="btn">View Applications</button></li>
+									</ul>
+								</li>
+
+								<!-- Fixed Deposit -->
+								<li>
+									<button class="btn">Fixed Deposit</button>
+									<ul>
+										<li id="FDacc" data-value="fixed"><button class="btn">View
+												Accounts</button></li>
+										<li id="FDapp" data-value="Fixed Deposit"><button
+												class="btn">View Applications</button></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<!-- Accounts List Closed -->
+
+						<!-- Loans List -->
+						<li>
+							<button class="btn">Loans</button>
+							<ul>
+								<!-- Personal -->
+								<li>
+									<button class="btn">Personal</button>
+									<ul>
+										<li id="Personalacc" data-value="PL"><button class="btn">View
+												Loans</button></li>
+										<li id="Personalapp" data-value="PL"><button class="btn">View
+												Applications</button></li>
+									</ul>
+								</li>
+
+								<!-- Vehicle -->
+								<li>
+									<button class="btn">Vehicle</button>
+									<ul>
+										<li id="Vehicleacc" data-value="Vehicle"><button
+												class="btn">View Loans</button></li>
+										<li id="Vehicleapp" data-value="Vehicle"><button
+												class="btn">View Applications</button></li>
+									</ul>
+								</li>
+
+								<!-- Gold -->
+								<li>
+									<button class="btn">Gold</button>
+									<ul>
+										<li id="Goldacc" data-value="Gold"><button class="btn">View
+												Loans</button></li>
+										<li id="Goldapp" data-value="Gold"><button class="btn">View
+												Applications</button></li>
+									</ul>
+								</li>
+
+								<!-- Mortage -->
+								<li>
+									<button class="btn">Mortage</button>
+									<ul>
+										<li id="Mortageacc" data-value="Mortage"><button
+												class="btn">View Loans</button></li>
+										<li id="Mortageapp" data-value="Mortage"><button
+												class="btn">View Applications</button></li>
+									</ul>
+								</li>
+								<li id="redirected" data-value="redirected"><button
+										class="btn">View redirected Applications</button></li>
+							</ul>
+						</li>
+						<!-- Loans List Closed -->
+
+						<!-- Transactions List -->
+						<li>
+							<button class="btn">Transactions</button>
+							<ul>
+								<li>
+									<button class="btn">Deposit</button>
+									<ul>
+										<li id="loanrepay"><button class="btn">Loan
+												Repayment</button></li>
+										<li id="moneydeposit"><button class="btn">Money
+												Deposit</button></li>
+									</ul>
+								</li>
+								<li>
+									<button class="btn">Withdrawl</button>
+									<ul>
+										<li id="loanwithdraw"><button class="btn">Loan
+												Withdrawl</button></li>
+										<li id="moneywithdraw"><button class="btn">Money
+												Withdrawl</button></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<!-- Transactions Closed -->
+
+						<li><button class="btn">Application Forms</button>
+							<ul>
+								<li id="newaccount"><button class="btn">AccountForm</button></li>
+								<li id="newloan"><button class="btn">Loan Form</button></li>
+							</ul></li>
+						<!-- intrest-calculatioons -->
+						<li>
+							<button class="btn">Account Processing</button>
+							<ul>
+								<li id="intrest_caluclation"><button class="btn">Interest
+										Calculation</button></li>
+								<li id="statement_generation"><button class="btn">Statement
+										Generation</button></li>
+							</ul>
+						</li>
+
+						<!-- Customers -->
+						<li id="customers"><button class="btn">Customers</button></li>
+
+						<!-- auditlogs -->
+						<li id="auditlogs"><button class="btn">Audit logs</button></li>
+
+						<!-- Users -->
+						<li>
+							<button class="btn">Users</button>
+							<ul>
+								<li id="adduser"><button class="btn">Add User</button></li>
+								<li id="listusers"><button class="btn">List Users</button></li>
+							</ul>
+						</li>
+						<!-- Users closed -->
+
+						<li><button class="btn">P&amp;L</button></li>
+
+						<li>
+							<button class="btn">Security</button>
+							<ul>
+								<li id="permissions"><button class="btn">Permission
+										Management</button></li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+
+		<main id="main-content"></main>
+
+		<footer> &copy; 2023 HamaraBank. All rights reserved. </footer>
+
+	</div>
+</div>

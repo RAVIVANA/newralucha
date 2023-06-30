@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+<title>Loan Repayment</title>
+
+<link rel="stylesheet" type="text/css" href="./css/loan-repayment.css">
+<script type="text/javascript" src="./js/loan-repayment.js"></script>
+</head>
+<body>
+	<h3>Loan Repayment</h3>
+	<div id="loan-repayment-form" class="form-container">
+	<div>
+		<form>
+			<div class="form-group">
+    <label for="loanid">Loan ID:</label>
+    <input type="text" class="form-control" id="loanid" placeholder="Enter loan ID" oninput="validateAndProcessAccountNumber()" required>
+</div>
+		</form>
+	</div>
+	</div>
+
+<div id="resulttable"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Account Master Entry</title>
+</head>
+<body>
+
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Account Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr th:each="account : ${accounts}">
+        <td th:text="${account.getAccountId()}"></td>
+        <td th:text="${account.getAccountType()}"></td>
+        <td th:text="${account.getDescriptionForm()}"></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  
+</body>
+</html>

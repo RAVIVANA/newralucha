@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Statement</title>
+<link rel="stylesheet" type="text/css"
+	href="./css/accounts-transactions-list.css">
+<script type="text/javascript" src="./js/accounts-transactions-list.js"></script>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Account ID</th>
+				<th>Date</th>
+				<th>Type</th>
+				<th>Mode</th>
+				<th>Amount</th>
+				<th>Processed By</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="transaction : ${statementlist}">
+				<td th:text="${transaction.tran_id}"></td>
+				<td th:text="${transaction.tran_anct_id}"></td>
+				<td th:text="${transaction.tran_date}"></td>
+				<td th:text="${transaction.tran_type}"></td>
+				<td th:text="${transaction.tran_mode}"></td>
+				<td th:text="${transaction.tran_amount}"></td>
+				<td th:text="${transaction.tran_processedby}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

@@ -1,0 +1,22 @@
+@charset "ISO-8859-1";
+
+.btn-custom {
+	width: 150px;
+	margin-right: 10px;
+}
+
+.center {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+#co {
+	max-width: 400px;
+}
+
+#row {
+	padding-left: 80px;
+	display: flex;
+	justify-content: center;
+}

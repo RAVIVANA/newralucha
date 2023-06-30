@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bank Users</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./css/bank-users.css">
+<script type="text/javascript" src="./js/bank-users.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row mt-3">
+			<div class="col-md-6">
+				<label for="designation">Select Designation:</label> <select
+					class="form-control" id="designation" onchange="filterUsers()">
+					<option value="">All</option>
+					<option value="Manager">Manager</option>
+					<option value="Account Processing">Account Processing</option>
+					<option value="Clerk">Clerk</option>
+					<option value="Bank Officer">Bank Officer</option>
+				</select>
+			</div>
+		</div>
+		<div class="row mt-3">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>User ID</th>
+							<th>Title</th>
+							<th>Designation</th>
+							<th>Email</th>
+							<th>Edit</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- Loop through bank users and display them -->
+						<tr th:each="bankUser : ${bankUsers}">
+							<td th:text="${bankUser.busr_id}">User ID</td>
+							<td th:text="${bankUser.busr_title}">Title</td>
+							<td th:text="${bankUser.busr_desg}">Designation</td>
+							<td th:text="${bankUser.busr_email}">Email</td>
+							<td>
+								<!-- Edit button -->
+								<button type="button" class="btn btn-primary"
+									data-toggle="modal"
+									th:data-target="'#editModal-' + ${bankUser.busr_id}">Edit</button>
+								<!-- Edit Modal -->
+								<div class="modal fade"
+									th:id="'editModal-' + ${bankUser.busr_id}" tabindex="-1"
+									role="dialog"
+									th:aria-labelledby="'editModalLabel-' + ${bankUser.busr_id}"
+									aria-hidden="true">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title"
+													th:text="'Edit User ' + ${bankUser.busr_id}">Edit User</h5>
+												<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<div class="modal-body">
+												<form method="post"
+													th:id="'editForm-' + ${bankUser.busr_id}"
+													action="saveUserData">
+													<div class="form-group">
+														<label for="busr_id">User ID</label> <input type="text"
+															class="form-control" th:name="busr_id"
+															th:id="'busr_id-' + ${bankUser.busr_id}"
+															th:value="${bankUser.busr_id}" readonly>
+													</div>
+													<div class="form-group">
+														<label for="busr_title">Title</label> <input type="text"
+															class="form-control" th:name="busr_title"
+															th:id="'busr_title-' + ${bankUser.busr_id}"
+															th:value="${bankUser.busr_title}">
+													</div>
+													<div class="form-group">
+														<label for="busr_desg-[[${bankUser.busr_id}]]">Designation</label>
+														<select class="form-control" name="busr_desg"
+															th:id="'busr_desg-' + ${bankUser.busr_id}">
+															<option value="" disabled selected>Select
+																Designation</option>
+															<option value="Manager"
+																th:selected="${bankUser.busr_desg == 'Manager'}">Manager</option>
+															<option value="Account Processing"
+																th:selected="${bankUser.busr_desg == 'Account Processing'}">Account
+																Processing</option>
+															<option value="Clerk"
+																th:selected="${bankUser.busr_desg == 'Clerk'}">Clerk</option>
+															<option value="Bank Officer"
+																th:selected="${bankUser.busr_desg == 'Bank Officer'}">Bank
+																Officer</option>
+														</select>
+													</div>
+													<div class="form-group">
+														<label for="busr_email">Email</label> <input type="text"
+															class="form-control" th:name="busr_email"
+															th:id="'busr_email-' + ${bankUser.busr_id}"
+															th:value="${bankUser.busr_email}">
+													</div>
+												</form>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary"
+													data-dismiss="modal">Cancel</button>
+												<button type="button" class="btn btn-primary"
+													th:id="'saveChangesBtn-' + ${bankUser.busr_id}"
+													th:onclick="|saveData('${bankUser.busr_id}')|">Save
+													Changes</button>
+												<button type="button" class="btn btn-secondary"
+													th:id="'okBtn-' + ${bankUser.busr_id}"
+													style="display: none;">OK</button>
+											</div>
+											<div id="'successMessage-' + ${bankUser.busr_id}"
+												class="success-message" style="display: none;"></div>
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>

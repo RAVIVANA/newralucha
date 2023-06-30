@@ -1,0 +1,140 @@
+@charset "ISO-8859-1";
+
+ h1 {
+    text-align: center;
+    margin-top: 0px;
+    font-size: 33px; /* Replace this value with the desired font size */
+   }
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      height: 100%;
+      padding-left:15px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      border: 1px solid #ccc;
+    }
+    
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+      word-break: break-all;
+      font-size: 14px;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+      font-size: 16px;
+    }   
+     tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+    
+    .form-popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      overflow: auto;
+    }
+    
+    .form-container {
+      max-width: 500px;
+      margin: 100px auto;
+      padding: 10px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    
+    .form-container label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    
+    .form-container input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+    
+    .form-container button {
+      padding: 6px 10px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    
+    .form-container button:hover {
+      background-color: #45a049;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    h2 {
+      font-size: 20px;
+    }
+    
+  .table-container {
+    max-height: 300px; /* Adjust the max-height as needed */
+  }
+
+  .table {
+    min-width: 100%;
+    table-layout: fixed;
+    overflow: scroll; /* Ensures the table layout remains fixed */
+  }
+    
+    .edit-button {
+    padding: 6px 10px;
+    background-color: green; /* Change to your desired green color */
+    color: white; /* Change to your desired text color */
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  .edit-button:hover {
+    background-color: green; /* Change to your desired color on hover */
+  }
+    
+    .form-popup::-webkit-scrollbar {
+      width: 6px;
+    }
+    
+    .form-popup::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 3px;
+    }
+    
+    .form-popup::-webkit-scrollbar-thumb:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    
+    .form-popup::-webkit-scrollbar-track {
+      background-color: rgba(0, 0, 0, 0.1);
+    }

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Table</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<link rel="stylesheet" type="text/css"
+	href="./css/loan-master-entry.css">
+<script type="text/javascript" src="./js/loan-master-entry.js"></script>
+	
+</head>
+<body>
+  <h1>Loans</h1>
+
+  <table>
+    <tr>
+      <td><button onclick="showLoanTypeForm()">Add new Loan Type</button></td>
+    </tr>
+    <tr>
+      <td>
+        Select a Loan Type:
+        <select id="loan-type" onclick="showRow()" value="selectLoan">
+          <option value="">Select...</option>
+          <!-- Replace with Thymeleaf loop -->
+          <option th:each="loan : ${loanTypes}" th:value="${loan.getLoanId()}" th:text="${loan.getLoanType()}" ></option>
+        </select>
+        <div id="information"></div>
+      </td>
+    </tr>
+  </table>
+  
+  <br><br>
+ 
+  <table id="myTable" hidden>
+    <tr>
+      <th>id</th>
+      <th>type</th>
+      <th>desc</th>
+    </tr>
+  </table>
+  
+  <br><br>
+  
+  <table id="resultTable">
+        <thead>
+ 
+      <tr>
+        <th>ID</th>
+        <th>Loan Type</th>
+        <th>Description</th>
+      </tr>
+
+    </thead>
+    <tbody>
+      <!-- Iterate over the loanList and populate the table rows -->
+      <tr th:each="loan : ${loans}">
+        <td th:text="${loan.getLoanId()}"></td>
+        <td th:text="${loan.getLoanType()}"></td>
+        <td th:text="${loan.getDescriptionForm()}"></td>
+      </tr>
+    </tbody>
+    
+  </table>
+  
+    <!-- Loan Type Modal -->
+  <div id="loanTypeModal" style="display: none;">
+    <div>
+      <h2>New Loan Type</h2>
+      <form>
+        <table>
+          <tr>
+            <td>Loan Type ID:</td>
+            <td><input type="number" id="loan_id" name="loan_id" required></td>
+          </tr>
+
+          <tr>
+            <td>Loan Type Title:</td>
+            <td><input type="text" id="loan_title" name="loan_title" required></td>
+          </tr>
+        </table>
+
+        <button type="button" onclick="adddescription()">Add Description</button>
+        <button type="button" onclick="closeModal()">Cancel</button>
+      </form>
+    </div>
+  </div>
+  
+  <div id="descriptionForm" style="display: none;">
+    <div>
+      <h2>Description</h2>
+      <form>
+        <table>
+          <tr>
+            <td>Loan Type Description:</td>
+            <td><textarea id="loan_desc" name="loan_desc" rows="4" cols="40"></textarea></td>
+          </tr>
+        </table>
+
+        <button type="button" onclick="saveLoanType()">Save</button>
+        <button type="button" onclick="closeModal()">Cancel</button>
+      </form>
+    </div>
+  </div>
+  
+  
+</body>
+</html>

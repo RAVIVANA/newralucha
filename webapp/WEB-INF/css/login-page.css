@@ -1,0 +1,48 @@
+@charset "ISO-8859-1";
+
+html, body {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	align-items: center;
+}
+
+#content {
+	padding: 20px;
+	background-color: #003366;
+	color: #fff;
+	border-radius: 20px;
+}
+
+.form-group {
+	margin-bottom: 20px;
+}
+
+.form-control {
+	height: calc(1.5em + 0.75rem + 2px);
+	padding: 0.375rem 0.75rem;
+	font-size: 0.875rem;
+	font-family: inherit;
+}
+
+.btn-primary {
+	background-color: #003366;
+	border-color: #f8f9fa;
+}
+
+.btn-primary:hover {
+	background-color: #fff;
+	border-color: #fff;
+	text-shadow: none;
+	color: #003366;
+}
+
+#forgotPassword {
+	display: block;
+	font-size: 0.875rem;
+	text-align: center;
+	margin-top: 10px;
+	color: #fff; /* Set the color to white */
+}

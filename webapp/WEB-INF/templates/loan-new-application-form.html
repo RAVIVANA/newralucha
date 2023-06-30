@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Loan Application Form</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css"
+	href="./css/loan-new-application-form.css">
+<script type="text/javascript" src="./js/loan-new-application-form.js"></script>
+</head>
+
+<body>
+	<div class="form-container">
+		<from id="first-form" class="hidden" method="post">
+			<table class="custom-table">
+				<h2>Loan Application Form</h2>
+				<tr>
+					<td><label for="cust_id">Customer ID:</label></td>
+					<td><input type="text" id="apcust_id" name="apcust_id"
+						required></td>
+					<td><label for="apdate">Application Date:</label></td>
+					<td><input type="date" id="apdate" name="apdate" required>
+					</td>
+					 <td>
+						  <label for="lnty_id">Select an Account Type:</label>
+						</td>
+						<td>
+						  <select id="lnty_id" name="lnty_id"  value="selectloan">
+						    <option value="">Select an option</option>
+						    <option th:each="loans : ${loan}"
+						            th:value="${loans.getLoanType()}"
+						            th:text="${loans.getLoanType()}"></option>
+						  </select>
+						</td>
+				</tr>
+				<tr>
+					<td><label for="amount">Loan Amount:</label></td>
+					<td><input type="text" id="amount" name="amount" required>
+					</td>
+					<td><label for="intrest">Interest:</label></td>
+					<td><input type="text" id="intrest" name="intrest" required>
+					</td>
+					<td><label for="emilimitfrom">EMI Limit From:</label></td>
+					<td><input type="text" id="emilimitfrom" name="emilimitfrom"
+						required></td>
+				</tr>
+				<tr>
+					<td><label for="emilimitto">EMI Limit To:</label></td>
+					<td><input type="text" id="emilimitto" name="emilimitto"
+						required></td>
+					<td><label for="tenure_requested">Tenure Requested:</label></td>
+					<td><input type="text" id="tenure_requested"
+						name="tenure_requested" required></td>
+					<td><label for="nominee">Nominee:</label></td>
+					<td><input type="text" id="nominee" name="nominee" required>
+					</td>
+				</tr>
+				<tr>
+					<td><label for="createdby">Created By:</label></td>
+					<td><input type="text" id="createdby" name="createdby"
+						required></td>
+					<td><label for="createddate">Created Date:</label></td>
+
+					<td><input type="date" id="createddate" name="createddate"
+						required></td>
+					<td><label for="processedby">Processed By:</label></td>
+					<td><input type="text" id="processedby" name="processedby"
+						required></td>
+				</tr>
+				<tr>
+					<td><label for="processdate">Process Date:</label></td>
+					<td><input type="date" id="processdate" name="processdate"
+						required></td>
+					<td><label for="processedstatus">Processed Status:</label></td>
+					<td><input type="text" id="processedstatus"
+						name="processedstatus" required></td>
+					<td><label for="luudate">Last Updated Date:</label></td>
+					<td><input type="date" id="luudate" name="luudate" required>
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><label for="luuser">Last Updated User:</label></td>
+					<td><input type="text" id="luuser" name="luuser" required>
+					</td>
+					<td><label for="status">Status:</label></td>
+					<td><input type="text" id="status" name="status" required>
+					</td>
+					<td><label for="remarks">Remarks:</label></td>
+					<td><textarea id="remarks" name="remarks" rows="4" required></textarea>
+					</td>
+				</tr>
+			</table>
+
+			<label for="attachment">Attachment:</label> <input type="file"
+				id="attachment" name="attachment" style="width: 500px;">
+			<button type="button" onclick="submit()">submit</button>
+			<div id="successMessage"></div>
+
+		</from>
+
+
+
+		<form id="second-form" method="post">
+			<table class="custom-table">
+				<h2>Customer Details Form</h2>
+				<tr>
+					<td>Customer ID:</td>
+					<td><input type="number" id="cust_id" name="cust_id"
+						class="form-control"></td>
+					<td>Customer Title:</td>
+					<td><input type="text" id="cust_title" name="cust_title"
+						class="form-control"></td>
+				</tr>
+				<tr>
+					<td>Customer Type:</td>
+					<td><input type="text" id="cust_type" name="cust_type"
+						class="form-control"></td>
+
+					<td>Customer Current Address:</td>
+					<td><input type="text" id="cust_caddress" name="cust_caddress"
+						class="form-control"></td>
+				</tr>
+				<tr>
+					<td>Customer Current PIN Code:</td>
+					<td><input type="text" id="cust_capincode"
+						name="cust_capincode" class="form-control"></td>
+
+					<td>Customer Date of Birth:</td>
+					<td><input type="date" id="cust_dob" name="cust_dob"
+						class="form-control"></td>
+				</tr>
+				<tr>
+					<td>Customer Mobile 1:</td>
+					<td><input type="text" id="cust_mobile1" name="cust_mobile1"
+						class="form-control"></td>
+
+					<td>Customer Mobile 2:</td>
+					<td><input type="text" id="cust_mobile2" name="cust_mobile2"
+						class="form-control"></td>
+				</tr>
+				<tr>
+					<td>Customer Residence Phone:</td>
+					<td><input type="text" id="cust_rphone" name="cust_rphone"
+						class="form-control"></td>
+
+					<td>Customer Residence Address:</td>
+					<td><input type="text" id="cust_raddress" name="cust_raddress"
+						class="form-control"></td>
+				</tr>
+			</table>
+			<button type="button" onclick="submit2()">Submit</button>
+		</form>
+	</div>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</body>
+</html>

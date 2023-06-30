@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Co-Operative Bank - Send OTP</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        /* CSS styles for the form */
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+        }
+
+        #content {
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            height: calc(1.5em + 0.75rem + 2px);
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+        }
+
+        .btn-primary {
+            background-color: #333;
+            border-color: #333;
+        }
+
+        .btn-primary:hover {
+            background-color: #111;
+            border-color: #111;
+            text-shadow: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="content" class="col-md-4 offset-md-4">
+       
+            <form id="otpForm" class="mt-4" action="EnterOtp" method="post">
+                <div class="form-group">
+                    <label for="email">Enter Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+                </div>
+                <input type="submit" class="btn btn-primary btn-block" value="Send OTP">
+            </form>
+        </div>
+    </div>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Bank User Form</title>
+<link rel="stylesheet" type="text/css" href="./css/add-user.css">
+<script type="text/javascript" src="./js/add-user.js"></script>
+</head>
+<body>
+	<div class="form-container">
+		<h2>Bank User Form</h2>
+		<form id="bankUserForm" th:action="@{/submit_form}" method="post">
+			<label for="busr_title" class="required">Name:</label> <input
+				type="text" id="busr_title" name="busr_title"
+				placeholder="Enter your name" required> <label
+				for="busr_desg" class="required">Designation:</label> <select
+				id="busr_desg" name="busr_desg" required>
+				<option value="" disabled="disabled" selected="selected">Select
+					Designation</option>
+				<option value="Manager">Manager</option>
+				<option value="Account Processing">Account Processing</option>
+				<option value="Clerk">Clerk</option>
+				<option value="Bank Officer">Bank Officer</option>
+			</select> <label for="busr_email" class="required">Email:</label> <input
+				type="email" id="busr_email" name="busr_email"
+				placeholder="Enter your email"
+				pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}\.[a-z]{2,}$" required>
+
+			<input type="submit" value="Submit"><br>
+			<div id="successMessage"></div>
+		</form>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>

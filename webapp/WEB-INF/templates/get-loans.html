@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Loan Types</title>
+</head>
+<body>
+	<h1>Loan Types</h1>
+	<option th:each="loan : ${loans}" th:value="${loan.getLoanId()}"
+		th:text="${loan.getLoanType()}"></option>
+
+</body>
+</html>
+

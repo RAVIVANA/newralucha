@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Loan Withdrawal</title>
+
+<link rel="stylesheet" type="text/css"href="./css/loan-withdrawl-form.css">
+<script type="text/javascript" src="./js/loan-withdrawl-form.js"></script>
+</head>
+<body>
+	<h3>Loan Withdrawal</h3>
+	<div id="loan-withdrawal-form" class="form-container">
+
+		<div >
+			<form >
+
+				<div class="form-group">
+    <label for="loanid">Loan ID:</label>
+    <input type="text" class="form-control" id="loanid" placeholder="Enter loan ID" oninput="validateAndProcessAccountNumber()" required>
+</div>
+
+
+			</form>
+		</div>
+
+	</div>
+
+
+<div id="resulttable"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</body>
+</html>

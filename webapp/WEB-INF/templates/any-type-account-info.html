@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css"
+	href="./css/any-type-account-info.css">
+<script type="text/javascript" src="./js/any-type-account-info.js"></script>
+</head>
+<body>
+	<h2></h2>
+	<table>
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>ActypeID</th>
+				<th>FirstName</th>
+				<th>LastName</th>
+				<th>CustomerID</th>
+				<th>CreateDate</th>
+				<th>CreatedBy</th>
+				<th>ProcessedBy</th>
+				<th>CustTitle</th>
+				<th>PhNo</th>
+				<th>Address</th>
+				<th>Balance</th>
+				<th>Status</th>
+				<th>Actions</th>
+			    <th>delete</th>
+			    <th>Active</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="account, rowStat : ${list_of_account}"
+				id="row-${rowStat.index + 1}">
+				<td data-column="acnt_acap_id"
+					th:text="${account.getApplicationId()}"></td>
+				<td data-column="acnt_type_id"
+					th:text="${account.getAccountTypeId()}"></td>
+				<td data-column="account_nominee_firstName"
+					th:text="${account.getApplicationNomineeFirstName()}"></td>
+				<td data-column="account_nominee_lastName"
+					th:text="${account.getApplicationNomineeLastName()}"></td>
+				<td data-column="acnt_cust_id" th:text="${account.getCustomerId()}"></td>
+				<td data-column="acnt_cdate" th:text="${account.getCreated_date()}"></td>
+				<td data-column="account_CreatedBy"
+					th:text="${account.getCreatedBy()}"></td>
+				<td data-column="acnt_processedby"
+					th:text="${account.getProcessedBy()}"></td>
+				<td data-column="customer_title"
+					th:text="${list_of_customer[rowStat.index].getTitle()}"></td>
+				<td data-column="customer_phno"
+					th:text="${list_of_customer[rowStat.index].getMobile1()}"></td>
+				<td data-column="customer_address"
+					th:text="${list_of_customer[rowStat.index].getResidenceAddress()}"></td>
+				<td data-column="account_balance" th:text="${account.getBalance()}"></td>
+				<td data-column="account_status" th:text="${account.getStatus()}"></td>
+
+				<td>
+					<button class="edit-button" onclick="editRow(this)">Edit</button>
+				</td>
+				<td>
+					<button class="edit-button" onclick="deleteRow(this)">del</button>
+				</td>
+				<td>
+					<button class="edit-button" onclick="activeRow(this)">Active</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<!-- Form Popup -->
+	<div class="form-popup" id="editForm">
+		<div class="form-container">
+			<h3>Edit Account</h3>
+			<label for="edit_acnt_acap_id">acnt_acap_id:</label> <input
+				type="text" id="edit_acnt_acap_id" name="edit_acnt_acap_id" readonly>
+			<label for="edit_acnt_acty_id">acnt_acty_id:</label> <input
+				type="text" id="edit_acnt_acty_id" name="edit_acnt_acty_id" readonly>
+			<label for="edit_account_first_nominee">account_first_nominee:</label>
+			<input type="text" id="edit_account_first_nominee"
+				name="edit_account_first_nominee" readonly> <label
+				for="edit_account_last_nominee">account_last_nominee:</label> <input
+				type="text" id="edit_account_last_nominee"
+				name="edit_account_last_nominee" readonly> <label
+				for="edit_acnt_cust_id">acnt_cust_id:</label> <input type="text"
+				id="edit_acnt_cust_id" name="edit_acnt_cust_id" readonly> <label
+				for="edit_acnt_cdate">acnt_cdate:</label> <input type="text"
+				id="edit_acnt_cdate" name="edit_acnt_cdate" readonly> <label
+				for="edit_account_createdBy">account_createdBy:</label> <input
+				type="text" id="edit_account_createdBy"
+				name="edit_account_createdBy" readonly> <label
+				for="edit_acnt_processedy">acnt_processedy:</label> <input
+				type="text" id="edit_acnt_processedy" name="edit_acnt_processedy"
+				readonly> <label for="edit_cust_Title">cust_Title:</label> <input
+				type="text" id="edit_cust_Title" name="edit_cust_Title"> <label
+				for="edit_cust_phoneNo">cust_phoneNo:</label> <input type="text"
+				id="edit_cust_phoneNo" name="edit_cust_phoneNo"> <label
+				for="edit_cust_Current_address">cust_Current_address:</label> <input
+				type="text" id="edit_cust_Current_address"
+				name="edit_cust_Current_address">
+			<button type="button" onclick="updateRow()">Update</button>
+			<button type="button" onclick="closeForm()">Close</button>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Money Withdrawal</title>
+<link rel="stylesheet" type="text/css"
+	href="./css/money-withdrawl-form.css">
+<script type="text/javascript" src="./js/money-withdrawl-form.js"></script>
+</head>
+<body>
+	<h3>Money Withdrawal</h3>
+
+
+	<div id="money-withdrawal-form" class="form-container">
+		<div>
+			<form method="post">
+
+				<div class="form-group">
+    <label for="accountNumber">Account Number:</label>
+    <input type="text" class="form-control" id="accountNumber" placeholder="Enter account number" name="accountNumber" oninput="validateAndProcessAccountNumber()" required>
+</div>
+
+
+
+			</form>
+		</div>
+	</div>
+
+</body>
+
+
+<div id="resulttable"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+</html>

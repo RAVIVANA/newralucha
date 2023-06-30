@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Manage Permissions Form</title>
+<link rel="stylesheet" type="text/css"
+	href="./css/permission-management.css">
+<script type="text/javascript" src="./js/permission-management.js"></script>
+</head>
+<body>
+	<h1>Manage Permissions Form</h1>
+
+	<div class="form-container">
+		<form>
+			<label for="userRole">User Role:</label> <select id="userRole"
+				name="userRole">
+				<option value="">Select Role</option>
+				<option value="clerk">Clerk</option>
+				<option value="bankOfficer">Bank Officer</option>
+				<option value="accountProcessingOfficer">Account Processing
+					Officer</option>
+			</select> <input type="submit" value="Permissions" />
+			<button type="button" onclick="resetForm()">Reset</button>
+
+		</form>
+	</div>
+
+	<div id="all" class="row">
+		<div class="checkbox-group" id="clerkCheckboxGroup">
+			<label><input type="checkbox" name="clerkPermissions"
+				value="dashboard"> Dashboard</label> <label><input
+				type="checkbox" name="clerkPermissions" value="accounts">
+				Accounts</label> <label><input type="checkbox"
+				name="bankOfficerPermissions" value="loans"> Loans</label> <label><input
+				type="checkbox" name="bankOfficerPermissions" value="transactions">
+				Transactions</label> <label><input type="checkbox"
+				name="accountProcessingOfficerPermissions" value="application">
+				Application</label> <label><input type="checkbox"
+				name="accountProcessingOfficerPermissions" value="users">
+				Users</label> <label><input type="checkbox"
+				name="managerPermissions" value="customers"> Customers</label> <label><input
+				type="checkbox" name="managerPermissions" value="accountProcessing">
+				Account Processing</label> <label><input type="checkbox"
+				name="managerPermissions" value="auditLog"> Audit Log</label>
+		</div>
+
+		<div class="checkbox-group" id="bankOfficerCheckboxGroup">
+			<label><input type="checkbox" name="clerkPermissions"
+				value="dashboard"> Dashboard</label> <label><input
+				type="checkbox" name="clerkPermissions" value="accounts">
+				Accounts</label> <label><input type="checkbox"
+				name="bankOfficerPermissions" value="loans"> Loans</label> <label><input
+				type="checkbox" name="bankOfficerPermissions" value="transactions">
+				Transactions</label> <label><input type="checkbox"
+				name="accountProcessingOfficerPermissions" value="application">
+				Application</label> <label><input type="checkbox"
+				name="accountProcessingOfficerPermissions" value="users">
+				Users</label> <label><input type="checkbox"
+				name="managerPermissions" value="customers"> Customers</label> <label><input
+				type="checkbox" name="managerPermissions" value="accountProcessing">
+				Account Processing</label> <label><input type="checkbox"
+				name="managerPermissions" value="auditLog"> Audit Log</label>
+		</div>
+
+		<div class="checkbox-group" id="accountProcessingOfficerCheckboxGroup">
+			<label><input type="checkbox" name="clerkPermissions"
+				value="dashboard"> Dashboard</label> <label><input
+				type="checkbox" name="clerkPermissions" value="accounts">
+				Accounts</label> <label><input type="checkbox"
+				name="bankOfficerPermissions" value="loans"> Loans</label> <label><input
+				type="checkbox" name="bankOfficerPermissions" value="transactions">
+				Transactions</label> <label><input type="checkbox"
+				name="accountProcessingOfficerPermissions" value="application">
+				Application</label> <label><input type="checkbox"
+				name="accountProcessingOfficerPermissions" value="users">
+				Users</label> <label><input type="checkbox"
+				name="managerPermissions" value="customers"> Customers</label> <label><input
+				type="checkbox" name="managerPermissions" value="accountProcessing">
+				Account Processing</label> <label><input type="checkbox"
+				name="managerPermissions" value="auditLog"> Audit Log</label>
+		</div>
+	</div>
+
+</body>
+</html>

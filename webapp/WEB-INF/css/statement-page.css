@@ -1,0 +1,10 @@
+@charset "ISO-8859-1";
+
+body {
+	font-family: Arial, sans-serif;
+	height: 100%;
+	padding-top: 100px;
+	padding-left: 100px;
+	justify-content: center;
+	align-items: center;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Loan Applications</title>
+<link rel="stylesheet" type="text/css"
+	href="./css/redirected-applications.css">
+<script type="text/javascript" src="./js/redirected-applications.js"></script>
+</head>
+<body>
+	<h2>Loan Applications</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Customer ID</th>
+				<th>Application Date</th>
+				<th>Loan Type ID</th>
+				<th>Amount</th>
+				<th>EMI Limit From</th>
+				<th>EMI Limit To</th>
+				<th>Tenure Requested</th>
+				<th>Nominee</th>
+				<th>Created By</th>
+				<th>Created Date</th>
+				<th>Processed By</th>
+				<th>Process Date</th>
+				<th>Processed Status</th>
+				<th>Last Updated Date</th>
+				<th>Last Updated User</th>
+				<th>Status</th>
+				<th>Remarks</th>
+				<th>Document</th>
+				<th>intrest</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="loanApp : ${loanApplications}">
+				<td id="loanId" th:text="${loanApp.getId()}"></td>
+				<td th:text="${loanApp.getCustId()}"></td>
+				<td th:text="${loanApp.getApplicationDate()}"></td>
+				<td th:text="${loanApp.getLoanTypeId()}"></td>
+				<td th:text="${loanApp.getAmount()}"></td>
+				<td th:text="${loanApp.getEmiLimitFrom()}"></td>
+				<td th:text="${loanApp.getEmiLimitTo()}"></td>
+				<td th:text="${loanApp.getTenureRequested()}"></td>
+				<td th:text="${loanApp.getNominee()}"></td>
+				<td th:text="${loanApp.getCreatedBy()}"></td>
+				<td th:text="${loanApp.getCreatedDate()}"></td>
+				<td th:text="${loanApp.getProcessedBy()}"></td>
+				<td th:text="${loanApp.getProcessDate()}"></td>
+				<td th:text="${loanApp.getProcessedStatus()}"></td>
+				<td th:text="${loanApp.getLastUpdatedDate()}"></td>
+				<td th:text="${loanApp.getLastUpdatedUser()}"></td>
+				<td th:text="${loanApp.getStatus()}"></td>
+				<td th:text="${loanApp.getRemarks()}"></td>
+				<td th:text="${loanApp.getAttachment()}"></td>
+				<td th:text="${loanApp.getIntrest()}"></td>
+
+				<td>
+					<button onclick="editRow(this)">Edit</button>
+					<button onclick="rejected()">Rejected</button>
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="form-popup" id="edit-popup">
+		<div class="form-container" id="edit-form-container">
+			<!-- Form fields will be dynamically generated here -->
+		</div>
+	</div>
+</body>
+</html>

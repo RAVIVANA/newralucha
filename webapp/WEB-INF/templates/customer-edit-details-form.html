@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css"
+	href="./css/customer-edit-details-form.css">
+<script type="text/javascript" src="./js/customer-edit-details-form.js"></script>
+
+</head>
+<body>
+	<h2>Customer Details</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>cust_id</th>
+				<th>cust_title</th>
+				<th>cust_type</th>
+				<th>cust_caddress</th>
+				<th>cust_capincode</th>
+				<th>cust_dob</th>
+				<th>cust_mobile1</th>
+				<th>cust_mobile2</th>
+				<th>cust_rphone</th>
+				<th>cust_raddress</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- Loop through the customerList to generate rows -->
+			<tr th:each="customer , rowStat: ${customerList}"
+				id="row-${rowStat.index + 1}">
+				<td data-column="cust_id" th:text="${customer.getId()}"></td>
+				<td data-column="cust_title" th:text="${customer.getTitle()}"></td>
+				<td data-column="cust_type" th:text="${customer.getType()}"></td>
+				<td data-column="cust_caddress"
+					th:text="${customer.getCurrentAddress()}"></td>
+				<td data-column="cust_capincode"
+					th:text="${customer.getCurrentPINCode()}"></td>
+				<td data-column="cust_dob" th:text="${customer.getDateOfBirth()}"></td>
+				<td data-column="cust_mobile1" th:text="${customer.getMobile1()}"></td>
+				<td data-column="cust_mobile2" th:text="${customer.getMobile2()}"></td>
+				<td data-column="cust_rphone"
+					th:text="${customer.getResidencePhone()}"></td>
+				<td data-column="cust_raddress"
+					th:text="${customer.getResidenceAddress()}"></td>
+				<td>
+					<button onclick="editRow(this)">Edit</button>
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="form-popup" id="editForm">
+		<div class="form-container">
+			<h2>Edit Customer</h2>
+			<label for="edit_cust_id">cust_id:</label> <input type="text"
+				id="edit_cust_id" name="edit_cust_id" readonly> <label
+				for="edit_cust_title">cust_title:</label> <input type="text"
+				id="edit_cust_title" name="edit_cust_title"> <label
+				for="edit_cust_type">cust_type:</label> <input type="text"
+				id="edit_cust_type" name="edit_cust_type"> <label
+				for="edit_cust_caddress">cust_caddress:</label> <input type="text"
+				id="edit_cust_caddress" name="edit_cust_caddress"> <label
+				for="edit_cust_capincode">cust_capincode:</label> <input type="text"
+				id="edit_cust_capincode" name="edit_cust_capincode"> <label
+				for="edit_cust_dob">cust_dob:</label> <input type="text"
+				id="edit_cust_dob" name="edit_cust_dob"> <label
+				for="edit_cust_mobile1">cust_mobile1:</label> <input type="text"
+				id="edit_cust_mobile1" name="edit_cust_mobile1"> <label
+				for="edit_cust_mobile2">cust_mobile2:</label> <input type="text"
+				id="edit_cust_mobile2" name="edit_cust_mobile2"> <label
+				for="edit_cust_rphone">cust_rphone:</label> <input type="text"
+				id="edit_cust_rphone" name="edit_cust_rphone"> <label
+				for="edit_cust_raddress">cust_raddress:</label> <input type="text"
+				id="edit_cust_raddress" name="edit_cust_raddress">
+			<button type="button" onclick="updateRow()">update</button>
+			<button type="button" onclick="closeForm()">close</button>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+<title>Loan Repayment</title>
+<link rel="stylesheet" type="text/css"
+	href="./css/sub-loan-repayment.css">
+<script type="text/javascript" src="./js/sub-loan-repayment.js"></script>
+</head>
+<body>
+<body>
+	<div id="loan-repayment-form" class="form-container1">
+
+		<div>
+			<form>
+				<div class="form-group">
+					<label for="loanid">Loan ID:</label> <input type="number"
+						class="form-control" id="loanid" name="loanid"
+						th:value="${account.getLoanId()}" readonly>
+				</div>
+				<div class="form-group">
+					<label for="accountHolder">Account Holder:</label> <input
+						type="text" class="form-control" id="accountHolder"
+						name="accountHolder" readonly>
+				</div>
+				<div class="form-group">
+					<label for="loanType">Loan Type:</label> <input type="text"
+						class="form-control" id="loanType" name="loanType"
+						th:value="${account.getLoanType()}" readonly>
+				</div>
+				<div class="form-group">
+					<label for="date">Date:</label> <input type="date" 
+					  onclick="getDate()" class="form-control" id="date" name="date">
+				</div>
+				<div class="form-group">
+					<label for="loanamount">Loan Amount(principle):</label> <input
+						type="number" class="form-control" id="loanamount"
+						name="loanamount" th:value="${account.getLoanamount()}" readonly>
+				</div>
+				<div class="form-group">
+					<label for="tenure">Loan tenure(in years):</label> <input
+						type="number" class="form-control" id="tenure" name="tenure"
+						th:value="${account.getLoanduration()}" readonly>
+				</div>
+
+				<div class="form-group">
+					<label for="NOI">Total No of Installments:</label> <input
+						type="number" class="form-control" id="NOI" name="NOI"
+						th:value="${account.getNOI()}" readonly>
+				</div>
+				<div class="form-group">
+					<label for="interestrate">Interest Rate(per annum):</label> <input
+						type="number" class="form-control" id="interestrate"
+						name="interestrate" th:value="${account.getInterestRate()}"
+						readonly>
+				</div>
+				<hr>
+				<div class="form-group">
+					<label for="loan_pending">Pending Loan Amount:</label> <input
+						type="number" class="form-control" id="loan_pending"
+						name="loan_pending" th:value="${account.getLoan_pending()}"
+						readonly>
+				</div>
+
+				<div class="form-group">
+					<label for="paidMonths">No of Installments Paid:</label> <input
+						type="number" class="form-control" id="paidMonths"
+						name="paidMonths" th:value="${account.getPaidMonths()}" readonly>
+				</div>
+
+				<div class="form-group">
+					<label for="emi">This month share:</label> <input type="number"
+						class="form-control" id="emi" name="emi"
+						th:value="${account.getEMI()}" readonly>
+				</div>
+				<div class="form-group">
+					<label for="interest">Interest:</label> <input type="number"
+						class="form-control" id="interest" name="interest"
+						th:value="${account.getInterest()}" readonly>
+				</div>
+				<div class="form-group">
+					<label for="total">This month Total to be paid:</label> <input
+						type="number" class="form-control" id="total" name="total"
+						th:value="${account.getTotal()}" readonly>
+				</div>
+				<hr>
+				
+				 <div class="form-group">
+                        <label for="pastdue">Past due:</label>
+                        <input type="number" class="form-control" id="pastdue" name="pastdue" 
+                        th:value="${account.getPastDue()}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="totalwithpenalty">This month Total with pastdue:</label>
+                        <input type="number" class="form-control" id="totalwithpenalty"  
+                        name="totalwithpenalty" th:value="${account.getTotalWithPenalty()}" readonly>
+                    </div><hr>
+				<div class="form-group">
+					<label for="complete">Complete loan to be paid:</label> <input
+						type="number" class="form-control" id="complete" name="complete"
+						th:value="${account. getComplete()}" readonly>
+				</div>
+				<hr>
+				
+				<div class="form-group">
+					<label for="amount">Amount:</label> <input type="number"
+						class="form-control" id="amount" name="amount" required>
+				</div>
+				<button type="button" class="tat" onclick="validateLoanWithdrawlForm()">Pay</button>
+				<div id="successMessage"></div>
+
+			</form>
+		</div>
+
+	</div>
+</body>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</body>
+</html>

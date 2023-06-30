@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/mvc
+                           http://www.springframework.org/schema/mvc/spring-mvc.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/tx
+                           http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <mvc:annotation-driven />
+    <context:component-scan base-package="com.nkxgen.spring.jdbc" />
+    <context:component-scan base-package="com.nkxgen.spring.jdbc.Dao" />
+    <context:component-scan base-package="com.nkxgen.spring.jdbc.controller" />
+    
+    
+
+    <bean id="templateResolver" class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
+        <property name="prefix" value="/WEB-INF/templates/"/>
+        <property name="suffix" value=".html"/>
+        <property name="templateMode" value="HTML"/>
+    </bean>
+
+    <bean id="templateEngine" class="org.thymeleaf.spring5.SpringTemplateEngine">
+        <property name="templateResolver" ref="templateResolver"/>
+    </bean>
+
+    <bean id="viewResolver" class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
+        <property name="templateEngine" ref="templateEngine"/>
+    </bean>
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="org.postgresql.Driver" />
+        <property name="url" value="jdbc:postgresql://192.168.110.48:5432/training"/>
+        <property name="username" value="plf_training_admin" />
+        <property name="password" value="pff123" />
+    </bean>
+
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
+          p:packagesToScan="com.nkxgen.spring.jdbc.model"
+          p:dataSource-ref="dataSource">
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="generateDdl" value="true" />
+                <property name="showSql" value="true" />
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+    <!-- Define your additional beans here -->
+	<bean id="ll" class="com.nkxgen.spring.jdbc.Dao.LoanApplicationDao" autowire="byName" />
+    <bean id="cd" class="com.nkxgen.spring.jdbc.Dao.CustomerDao" autowire="byName" />
+    <bean id="bankUserService" class="com.nkxgen.spring.jdbc.Dao.BankUserService" autowire="byName" />
+    <bean id="ac" class="com.nkxgen.spring.jdbc.Dao.AccountApplicationDAO" autowire="byName" />
+    <bean id="account" class="com.nkxgen.spring.jdbc.Dao.AccountTypesDAO" autowire="byName" />
+    <bean id="loan" class="com.nkxgen.spring.jdbc.Dao.LoanTypesDAO" autowire="byName" />
+    <bean id="v" class="com.nkxgen.spring.jdbc.Bal.setEntityToView" autowire="byName" />
+    <bean id="s" class="com.nkxgen.spring.jdbc.Bal.CustomerSetter" autowire="byName" />
+    <bean id="ac1" class="com.nkxgen.spring.jdbc.Bal.Intrestcaluclation" autowire="byName" />
+    <bean id="interestCalDao" class="com.nkxgen.spring.jdbc.Dao.AccountProcessingDAOimp" autowire="byName" />
+    <bean id="loginFilter" class="com.nkxgen.spring.jdbc.filter.LoginFilter" />
+    
+    <mvc:resources mapping="/js/**" location="/WEB-INF/js/" />
+    <mvc:resources mapping="/css/**" location="/WEB-INF/css/" />
+    <mvc:resources mapping="/WEB-INF/js/**" location="/WEB-INF/js/" />
+	
+</beans>
